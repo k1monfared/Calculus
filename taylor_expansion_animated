@@ -1,0 +1,21 @@
+# Finding Taylor polynomial of a function with animation
+
+var('x')
+from sage.plot.colors import rainbow
+n = 20
+xmin = -10
+xmax = 10
+
+g = sin(x)
+
+P = plot(g, (xmin,xmax), color = rainbow(n+1)[0],thickness=3)
+Frames = []
+for i in range(n):
+    h = g.taylor(x, 0, i)
+    P += plot(h, (xmin,xmax), color = rainbow(n+1)[i+1])
+    Frames += [P]
+
+m = 0
+M = 12
+a = animate(Frames,xmin=m,xmax=M,ymin=-1.5,ymax=1.5)
+a
