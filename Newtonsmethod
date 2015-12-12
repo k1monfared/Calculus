@@ -1,3 +1,5 @@
+# Use Newton's method to approximate a root of a function
+
 def Newtons_method(f,a,n):
     var('x')
     f(x) = f
